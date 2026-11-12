@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- लाइव कैमरा प्रीव्यू -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/viewFinder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- टॉप कंट्रोल बार (Flash, Stabilization EIS, Flip Camera) -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="#44000000"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnFlash"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:text="FLASH: OFF"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#222222" />
+
+        <Button
+            android:id="@+id/btnStabilization"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:text="EIS: ON"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#00897B" />
+
+        <Button
+            android:id="@+id/btnFlip"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:text="FLIP"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#222222" />
+    </LinearLayout>
+
+    <!-- ज़ूम लॉक स्टेटस इंडिकेटर -->
+    <TextView
+        android:id="@+id/txtZoomLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="⚡ AI ZOOM LOCK ACTIVE"
+        android:textColor="#FFEB3B"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:background="#88000000"
+        android:padding="6dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- ज़ूम सेलेक्टर्स (1x, 3x Lossless, 5x, 10x) -->
+    <LinearLayout
+        android:id="@+id/zoomBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#66000000"
+        android:padding="4dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/modeSelector"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnZoom1x"
+            android:layout_width="52dp"
+            android:layout_height="36dp"
+            android:text="1x"
+            android:textColor="#FFD700"
+            android:textSize="12sp"
+            android:backgroundTint="#00000000" />
+
+        <Button
+            android:id="@+id/btnZoom3x"
+            android:layout_width="52dp"
+            android:layout_height="36dp"
+            android:text="3x"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:backgroundTint="#00000000" />
+
+        <Button
+            android:id="@+id/btnZoom5x"
+            android:layout_width="52dp"
+            android:layout_height="36dp"
+            android:text="5x"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:backgroundTint="#00000000" />
+
+        <Button
+            android:id="@+id/btnZoom10x"
+            android:layout_width="52dp"
+            android:layout_height="36dp"
+            android:text="10x"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:backgroundTint="#00000000" />
+    </LinearLayout>
+
+    <!-- फोटो / वीडियो मोड स्विच -->
+    <LinearLayout
+        android:id="@+id/modeSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btnCapture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnPhotoMode"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="PHOTO"
+            android:textStyle="bold"
+            android:textColor="#FFD700"
+            android:backgroundTint="#00000000" />
+
+        <Button
+            android:id="@+id/btnVideoMode"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="VIDEO"
+            android:textColor="#AAAAAA"
+            android:backgroundTint="#00000000" />
+    </LinearLayout>
+
+    <!-- शटर बटन (Photo / Video Record) -->
+    <Button
+        android:id="@+id/btnCapture"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="32dp"
+        android:text="●"
+        android:textSize="32sp"
+        android:textColor="#D32F2F"
+        android:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
